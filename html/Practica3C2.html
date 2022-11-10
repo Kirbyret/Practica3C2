@@ -1,56 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/estilos.css">
-<title>Agencia de Automoviles XYZ</title>
-<script src="/js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia Automotriz</title>
+    <link rel="stylesheet" href="/css/estilosP3C2.css">
+    <script src="/js/mainP2C2.js"></script>
 </head>
 <body>
-<header>
-    <h1>Agencia de Automoviles XYZ</h1>
-</header>
-<div class="row">
-    <aside style="height: 70%; width: 25%; float: left;">
-        <label for="">Valor del Automovil</label>
-        <input type="text" id="va" name="valorda" style="float: right; margin-right: 50px;" >
-        <br>
-        <br>
-        <label for="">Enganche</label>
-        <input type="text" id="en" name="enganche" style="float: right; margin-right: 50px;" >
-        <br>
-        <br>
-        <label for="">Total a Financiar</label>
-        <input type="text" id="tf" name="TotalF" style="float: right; margin-right: 50px;" >
-        <br>
-        <br>
-        <label style="float: right"for="">Pago Mensual</label>
-        <br>
-        <br>
-        <br>
-        <button style="float: right; margin-left: 20px;" id="btnAplicar"  onclick="calcular()">Calcular</button>
-        <button style="float: right" id="btnLimpiar" onclick="limpiarCaja()">Limpiar</button>
-        <br>
-    </aside>
-<section style="height: 70%; width: 35%; float: left; margin-left:5px ; margin-top: 12px;">
-    <h3 >Planes de Credito</h3>
-    <select name="plazos" id="tabla">
-        <option value="12">12 Meses</option>
-        <option value="18">18 Meses</option>
-        <option value="24">24 Meses</option>
-        <option value="36">36 Meses</option>
-        <option value="48">48 Meses</option>
-    </select>
-    
-    <br>
-    <br>
-    <input style="float: left" type="text" id="pm" name="pago mensual">
-</section>
-</div>
-<footer>
-<h2></h2>
-</footer>
+    <section id="contenedor">
+        <h1>Agencia Automotriz</h1>
+
+        <div id="contenido">
+            <div id="atrox">
+                <div class="parte">
+                    <br>
+                    <br>
+                    <center>
+                        <label>Valor Automovil</label>
+                    </center>
+                    <br>
+                    <div id="contener">
+                        <input class="input-text" id="txtValor" type="number" placeholder="Valor Automovil">
+                        <label id="errorValor" style="color: rgb(230, 33, 33); visibility: hidden;"></label>
+                    </div>
+                </div>
+                <div class="parte">
+                    <center><label>Enganche</label></center>
+                    <br>
+                    <p id="txtEnganche"></p>
+                </div>
+                <div class="parte">
+                    <center><label>Total a Financiar</label></center>
+                    <br>
+                    <p id="txtFinanciar"></p>
+                </div>
+                <div class="parte">
+                    <center><label>Planes de Credito</label></center>
+                    <br>
+                    <select name="cmbPlanes" id="cmbPlanes">
+
+                        <option value="12">12 Meses</option>
+                        <option value="18">18 Meses</option>
+                        <option value="24">24 Meses</option>
+                        <option value="36">36 Meses</option>
+                        <option value="48">48 Meses</option>
+                
+                    </select>
+
+                    <p id="txtPago"></p>
+
+                </div>
+            </div>
+                
+            <div id="btnBotones">
+                <button id="btnLimpiar" onclick="limpiar()">Limpiar</button>
+                <button id="btnCalcular" onclick="calcular()">Calcular</button>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        const btnCalcular = document.querySelector("#btnCalcular");
+        btnCalcular.addEventListener('click',()=>{
+
+            valor = document.querySelector("#txtValor").value;
+            errorValor = document.querySelector("#errorValor");
+            valor== "" ? errorValor.style.visibility = 'visible': errorValor.style.visibility = 'hidden' ;
+
+            if(valor==0){
+
+                alert("Faltan datos por capturar");
+
+            }
+
+        })
+    </script>
+    <footer>
+        <center><h3>Paola Emiret Valdez Martinez</h3></center>
+    </footer>
 </body>
 </html>

@@ -1,32 +1,46 @@
 function calcular(){
-    pla = 0;
-    va = document.getElementById('va').value;
-    en = document.getElementById('en').value;
-    tab = document.getElementById('tabla').value;
-    
-    re = va - en;
-    
-    if (tab == 12) {
-        pla = 1.125
-    } else if(tab == 18){
-        pla = 1.172
-    }else if(tab == 24){
-        pla = 1.21
-    }else if(tab == 36){
-        pla = 1.26
-    }else{
-        pla = 1.45
-    }
-    document.getElementById("tf").value = re*pla;
-    tf = document.getElementById('tf').value;
-    
-    document.getElementById("pm").value = tf/tab;
+    engan = document.getElementById('txtEnganche');
+    finan = document.getElementById('txtFinanciar');
+    pag = document.getElementById('txtPago');
+    valor = document.getElementById('txtValor').value;
+    plan = document.getElementById('cmbPlanes').value;
+    let res;
 
+    engan.innerHTML = "$" + (valor * .30);
+    res = (valor - (valor *.30));
+
+    if(plan == 12){
+        finan.innerHTML = "$" + (res * 1.125);
+        pag.innerHTML = "$" + ((res * 1.125)/plan).toFixed(2);
+
+    }else if (plan == 18){
+        finan.innerHTML = "$" + (res * 1.172);
+        pag.innerHTML = "$" + ((res * 1.172)/plan).toFixed(2);
+
+    }else if(plan == 24){
+        finan.innerHTML = "$" + (res * 1.21);
+        pag.innerHTML = "$" + ((res * 1.21)/plan).toFixed(2);
+
+    }else if(plan == 36){
+        finan.innerHTML = "$" + (res * 1.26);
+        pag.innerHTML = "$" + ((res * 1.26)/plan).toFixed(2);
+
+    }else if(plan == 48){
+        finan.innerHTML = "$" + (res * 1.45);
+        pag.innerHTML = "$" + ((res * 1.45)/plan).toFixed(2);
+
+    }
 }
 
-function limpiarCaja() {
-    document.getElementById("tf").value = "";
-    document.getElementById("va").value = "";
-    document.getElementById("en").value = "";
-    document.getElementById("pm").value = "";
+function limpiar(){
+    valor = document.getElementById('txtValor');
+    engan = document.getElementById('txtEnganche');
+    finan = document.getElementById('txtFinanciar');
+    pago = document.getElementById('txtPago');
+
+    valor.value = "";
+    engan.innerHTML = "";
+    finan.innerHTML = "";
+    pago.innerHTML = "";
+
 }
